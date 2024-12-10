@@ -81,44 +81,100 @@ console.log("Exercise 10 Results: ", hasSoup);
 
 //Testing array.filter() WITH another var "j"
 const nums = [100, 5, 23, 15, 21, 72, 9, 45, 66, 7, 81, 90];
-for (let i=0; i<i.length; i++){
-   let j = nums[i];
-   const odds1 = j.filter((num) => num % 2 === 1);
-   console.log("Exercise 11 Results(using filter array) : ",odds1);
+const odds= [];
+for (let i=0; i<nums.length; i++){
+   const inspectNum = nums[i];
+   if(inspectNum % 2 ===1){
+    odds = odds.push(nums[i]);
+   }
+   
+   console.log("Exercise 11 Results(using filter array) : ",odds);
+}
+
+
+
+//Exercise 13: Retrieve the Last Array
+
+//1) Assign the last nested array in the `numArrays` below to a variable named `numList`. As you do this, also fulfill these goals:
+//
+//   - Assume you don't know how many nested arrays `numArrays` contains.
+//   - Do not alter the original `numArrays` array.
+
+const numArrays = [
+	[100, 5, 23],
+	[15, 21, 72, 9],
+	[45, 66],
+	[7, 81, 90]
+];
+console.log("Testing Array :",numArrays[3][2]);  // ANSWER IS 90. LAST ROW LAST COL [ROWS][COL]
+console.log("Testing Array ROW length:",numArrays.length);
+
+const i = numArrays.length-1;
+//const numList = numArrays[i];
+numList = numArrays[numArrays.length-1];
+console.log(`Exercise 13 Results: `, numList)
+
+
+
+//Exercise 14: Accessing within nested arrays
+//1) Retrieve the number `66` from the `numArrays` array. As part of this process
+//   do not alter the original `numArrays` array.
+//2) Assign it to a variable called `num`.
+
+const num = numArrays[2][1];
+console.log('Exercise 14 result: ', num);
+
+
+//Exercise 15: Nested array sum
+//1) Use nested loops or `forEach()` methods to sum up all numbers within 
+//   `numArrays` nested arrays.   
+//2) Assign the sum to a variable called `total`.
+//Hint: Be sure to declare and initialize the total variable before the iterations.
+
+//const numArrays = [
+//	[100, 5, 23],
+//	[15, 21, 72, 9],
+//	[45, 66],
+//	[7, 81, 90]
+//];
+//console.log("TESTING COL", numArrays[0].length);
+
+for(let i=0;i<numArrays.length;i++){
+   let total = 0;
+   let subTotal = 0;
+   const rowNum = i+1;
+   for(j=0;j<numArrays[i].length; j++){
+      const addNum = numArrays[i][j];
+      subTotal = subTotal+addNum;
+   }
+   total = total + subTotal;
+console.log(`Exercise 15 Results for Row `,rowNum,` is `,  total)
 }
 
 
 
 
+//Exercise 12: FizzBuzz with arrays
+//1) Choose a method to iterate through the `nums` array. 
+//2. As you loop, sort the numbers into new arrays based on the following rules:
+//   - Push any number evenly divisible by 3 to an array called `fizz`.
+//   - Push any number evenly divisible by 5 to an array called `buzz`.
+//   - Push any number that is evenly divisible by 3 and 5 to an array called `fizzbuzz`.
+//  Note: A single number may meet more than one of the above rules. If it does,
+//         it should be placed in multiple arrays. For example, the number `15`
+//         will appear in the `fizz`, `buzz`, and `fizzbuzz` arrays.
+// const nums = [100, 5, 23, 15, 21, 72, 9, 45, 66, 7, 81, 90];
 
 
 
+/*
+const fizz = [];
+const buzz = [];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//!Testing array.filter() WITHOUT another var (DOES NOT WORK!)
-for (let i=0; i<i.length; i++){
-   const odds3 = nums[i].filter((nums[i]) , nums[i] % 2 === 1);
-  console.log("Exercise 11 Results(using filter array) : ",odds3);
+for (let i = 0; i<nums.length ; i++){
+   inspectNum = nums[i];
+   if (inspectNum)
 }
+*/
 
-//Testing array.forEach()
-//for (let i=0; i<i.length; i++){
- //  const odds2 = [];
- //  let j = nums[i];
- //  const odds = j.filter((num) => num % 2 === 1);
- //  console.log("Exercise 11 Results(using filter array) : ",odds2);
-//}
 
