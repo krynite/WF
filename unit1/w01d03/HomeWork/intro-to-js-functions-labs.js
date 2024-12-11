@@ -187,3 +187,73 @@ return ans;
 
 }
 console.log('Exercise 9 Result:', basicCalculator(10, 5, "subtract"));
+
+
+// Exercise 10: calculateGrade()
+// Define a function called calculateGrade. 
+// It should take a numerical score and return the corresponding letter 
+// grade (A, B, C, D, F). 
+// For example, 90 and above yields an 'A', 80-89 is a 'B', 
+// and 70-79 is a 'C', 60-69 is a 'D' and anything lower than a 60 is an 'F'.
+
+// Example: calculateGrade(100) should return A.
+
+const calculateGrade = (grade) => {
+  let finalGrade = ``;  
+    switch (true){
+        case (grade>=90):
+            finalGrade=`A`;
+            break;  
+        case (grade<90 && grade>79):
+            finalGrade=`B`;
+            break;
+        case (grade<80 && grade>69):
+            finalGrade=`C`;
+            break;
+        case (grade<70 && grade>59):
+            finalGrade=`D`;
+            break;
+        case (grade<60):
+            finalGrade=`F`;
+            break;                     
+    }
+return finalGrade;
+}
+
+console.log('Exercise 10 Result:', calculateGrade(85));
+
+
+// Exercise 11: createUsername()
+// Define a function called createUsername. 
+// It should take a first name and a last name and return a username. 
+// The username should be a combination of the following:
+// - The first three letters of the first name.
+// - The first three letters of the last name.
+// - The total character count of the first and last name combined.
+
+// Example: createUsername('Samantha', 'Green') should return 'SamGre13'.
+
+const createUsername = (str1,str2) => {
+    const totalLength = str1.length+str2.length;
+//console.log(totalLength);
+    const shortNameLength = str1.slice(0,3) + str2.slice(0,3) + totalLength;
+// IT WORKS - for last 3 letters of Green as een.
+// IT WORKS - shortNameLength = str1.slice(0,3) + str2.slice((str2.length-4),(str2.length)) + totalLength; // results: Sameen13
+return shortNameLength;
+}
+console.log('Exercise 11 Result:', createUsername("Samantha", "Green"));
+
+//createUsername(`wow`,`test`);
+
+
+// Exercise 12: numArgs()
+// Challenge yourself with numArgs. 
+// This function should return the count of arguments passed to it when called.
+
+const numArgs = () => {
+    return arguments.length-1;                      //! https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments/length
+                                                    //! This gives the number of inputs into the function. 
+}
+
+console.log('Exercise 12 Result:', numArgs(10, 2, 3, 4));
+
