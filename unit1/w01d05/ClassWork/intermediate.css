@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body {
+    font-family: Cantarell, Helvetica, Tahoma, Verdana, sans-serif;
+}
+
+div {
+    width: 70vh;
+}
+
+h1 {
+    text-align: center;
+    /* font-size: 2rem */
+}
+
+* {
+    box-sizing: border-box;
+    border: 1px solid gold
+}
+
+/*? selectors -> class (dot), id (hashtag), element (html) */
+
+.top-level-list:hover {
+    background-color: green;
+}
+
+input[type="number"]:focus {
+    background-color: blue;
+}
+
+p::first-letter {
+    font-size: 3em;
+}
+
+#eco-colour:hover {
+    color: green
+}
+
+#about:hover {
+    color: gold;
+}

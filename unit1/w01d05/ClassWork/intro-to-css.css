@@ -1,0 +1,58 @@
+h1 {
+    color: #2da927;
+    text-align: justify;
+}
+
+h2 {
+    font-family: Arial, sans-serif;
+    /* font-size: 28px; */
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+}
+
+p {
+    /* all four sides */
+    /* padding: 20px; */
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 30px;
+    padding-top: 40px;
+}
+
+
+* {
+    border: 1px dashed gold;
+}
+
+body {
+    margin: 0;
+    background-color: lightgray;
+}
+
+ul {
+    margin: 0;
+}
+
+
+
+.super-cool {
+    border: 2px solid green;
+    color: yellow;
+}
+
+.important {
+    color: red;
+    font-weight: bold;
+}
+
+
+/*? class selector -> dot,id selector -> hashtag */
+#about {
+    font-style: italic;
+    color: hotpink;
+}
+
+div {
+    color: blue;
+}
