@@ -52,9 +52,9 @@ for (let i = 0; i < pokemon.length; i++) {    //For loop to iterate and see all 
     //console.log("See all starter Pokemon ",starterPokemons);
   }
 }
-console.log("Selected Pokemon: ",pokemon[0].name)   //Selected Bulbasaur
+console.log("Selected Pokemon: ",pokemon[0])   //Selected Bulbasaur
 
-game.party.push(pokemon[0].name)
+game.party.push(pokemon[0])
 console.log("Ex4 : First Pokemon in Party: ",game.party[0])
 
 
@@ -66,8 +66,9 @@ console.log("Ex4 : First Pokemon in Party: ",game.party[0])
 // 1. Choose three more Pokémon from the `pokemon` array and add them to your party.
 // 2. Consider different attributes like 'type' or 'HP' for your selection. Which array method will you use to add them?
 
-game.party.push(pokemon[3].name);            // Selected Charmander
-game.party.push(pokemon[6].name);            // Selected Squirtle
+game.party.push(pokemon[3]);            // Selected Charmander
+game.party.push(pokemon[6]);            // Selected Squirtle
+game.party.push(pokemon[24]);           // Selected Pikachu
 
 console.log("Ex5 : New Current Party: ",game.party);
 
@@ -108,7 +109,7 @@ console.log("Ex6 : Show Gym Completion Status: ", game.gyms);
 
 // More Hints: The existing starter Pokemon will be *replaced* in your party with the Pokemon it evolved into. When working with an array of objects, the splice() array method is ideal for replacing one element with another. 
 
-game.party.splice(0,3,pokemon[2].name,pokemon[5].name,pokemon[8].name);
+game.party.splice(0,4,pokemon[1],pokemon[4],pokemon[7],pokemon[25]);
 console.log("Ex7 : New Evolved Pokemon Party", game.party);
 
 
@@ -147,9 +148,12 @@ console.log(`Ex9a :Inline Starter Pokemon Names: `, inlineStarterPokemons)    //
 //   - not return anything
 
 // After writing this method, call it and pass in a Pokemon object of your choice from the `pokemon` data to catch it.
-
-
-
+ 
+// game.catchPokemon = function(pokemonObj) {
+//    game.party.push(pokemonObj);
+// };
+// game.catchPokemon(pokemon[16]);              //Caught Pidgeotto
+// console.log("New Party after catching",game.party)
 
 
 // Exercise 11
@@ -163,12 +167,30 @@ console.log(`Ex9a :Inline Starter Pokemon Names: `, inlineStarterPokemons)    //
 
 
 
+console.log(game.items)
+
+game.catchPokemon = function(pokemonObj) {
+   game.party.push(pokemonObj);
+    console.log("Pokeballs before Catching: ",game.items[1]);
+   //game.items[1].quantity = game.items[1].quantity-1;
+   game.items[1].quantity -= 1;
+   console.log("Pokeballs after Catching: ",game.items[1]);
+};
+game.catchPokemon(pokemon[16]);              //Caught Pidgeotto
+
+console.log("Ex11  Party after catching",game.party);
+console.log("No. of ",game.items["1"], "Poke balls Left");
 
 // Exercise 12
 // 1. Similar to Exercise 6, now complete gyms with a difficulty below 6. How will you approach this?
 //  (change the value of `complete` in the qualifying objects from false to true).
 
-
+for (let i = 0; i < game.gyms.length; i++) {
+    if(game.gyms[i].difficulty < 6){
+      game.gyms[i].completed = true;      
+    };  
+};
+console.log("Ex12 : Show Gym Completion Status: ", game.gyms);
 
 
 // Exercise 13
@@ -190,6 +212,23 @@ console.log(`Ex9a :Inline Starter Pokemon Names: `, inlineStarterPokemons)    //
 
 // For example, if five gym objects have a value of `true` on their `completed` property and three gym objects have a value of `false` on their `completed` property, the logged value would be: `{ completed: 5, incomplete: 3 }`.
 
+game.gymStatus = function() {
+  const gymTally = {
+                    Completed: 0,
+                    Uncompleted: 0
+                  }   
+for (let i = 0; i<game.gyms.length ; i++){
+
+      if (game.gyms[i].completed === true){
+            gymTally.Completed += 1;
+      } else{
+            gymTally.Uncompleted += 1;
+            }
+    }
+  console.log("Gym Completion Status: ",gymTally);
+};
+game.gymStatus();
+
 
 
 
@@ -201,7 +240,11 @@ console.log(`Ex9a :Inline Starter Pokemon Names: `, inlineStarterPokemons)    //
 //   - Count the number of Pokemon in the party.
 //   - return the found number of Pokemon in the party.
 
-
+game.partyCount = function() {
+  let partyNum = game.party.length;
+  return partyNum;
+}
+console.log("Current No. of Party Members: ", game.partyCount());
 
 
 
@@ -209,9 +252,20 @@ console.log(`Ex9a :Inline Starter Pokemon Names: `, inlineStarterPokemons)    //
 // 1. Now, complete gyms with a difficulty below 8. Reflect on how this is similar to or different from the previous gym exercises.
 // (change the value of `complete` in the qualifying objects from false to true).
 
-
+for (i=0 ; i < game.gyms.length; i++){
+  if (game.gyms[i].difficulty < 8){
+      game.gyms[i].completed = true;
+  }
+}
+game.gymStatus();
 
 
 
 // Exercise 16
 // 1. Log the entire `game` object to the console. Take a moment to review the changes you've made throughout the exercises.
+
+
+console.dir(game);
+
+//? Why cannot console log Methods?
+//? Why some catchPokemon+gymStatus etc are show up as "[Function (anonymous)]"?
