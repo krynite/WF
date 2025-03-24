@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <script defer src="app.js"></script>
+</head>
+
+<body>
+    <h1>Todo List</h1>
+    <form>
+        <fieldset>
+            <legend>Todo Item</legend>
+
+            <label>
+                Title: <input name="title" id="title-input" value="abc" />
+            </label>
+            <button id="create-button" type="button">Create</button>
+        </fieldset>
+    </form>
+
+    <section style="display: flex; justify-content: space-around">
+        <article>
+            <h2>Todo List</h2>
+            <ul id="todo-list">
+                <li><s>Eat Lunch</s></li>
+                <li id="item2">Another item</li>
+                <li id="item">Pass Project 1</li>
+                <!-- <li>
+            <label> <input type="checkbox" />Pass Project </label>
+          </li> -->
+                <!-- <li>New Item</li> -->
+            </ul>
+        </article>
+
+        <article>
+            <h2>Completed List</h2>
+            <ul id="completed-list">
+                <li>Learn JS</li>
+                <li>Pass Project (Target)</li>
+                <!-- <li>New Item</li> -->
+            </ul>
+        </article>
+    </section>
+
+    <!-- <div id="parent">
+      <div id="child">child</div>
+    </div> -->
+</body>
+
+</html>
